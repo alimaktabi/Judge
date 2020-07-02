@@ -5,7 +5,12 @@
 #define MAXSIZE 100
 
 float Judge(char name[]);
-
+/*
+*This function is for getting input and output files from txt addresses if needed
+* variable counter and count are counters for getting inputs and putting testcases
+* variable command is for executing commands in cmd
+* variable name is the name of the project and x counts the txt files as it goes
+*/
 void Text(char name[]) {
     int count, counter = 1;
     char location[MAXSIZE], command[MAXSIZE], x;
@@ -62,6 +67,11 @@ void Text(char name[]) {
 //    else
 //        return -1;
 } */
+/*
+*this function is for comparing 2 files so make sure he gets the score or not
+*ch1 and ch2 gets every characters from files and compare each other, if they were not equal so the function returns error
+* if nothing wrong happens the function complete successfully and returns the good result of a good student
+*/
 int compareFiles(FILE *file1, FILE *file2){
    char ch1 = getc(file1);
    char ch2 = getc(file2);
@@ -103,6 +113,11 @@ struct dirent *de;  // Pointer for directory entry
     return 0;
 }
 */
+/*
+*function for making directories
+* variable name is for name of the dir
+* if no error happens function returns 0
+*/
 int cd(char name[]) {
     char command[50] = "mkdir ";
     strcat(command, name);
@@ -114,6 +129,12 @@ int cd(char name[]) {
     return 0;
 }
 
+/*
+* this function gets testfile outputs and put them into comparefiles
+* variable name is the name of the judge
+* variable command is for executing cmd commands
+* function returns the score at last
+*/
 float Judge(char name[]) {
     int score = 0;
     int counter = 1, count=0;
@@ -176,7 +197,11 @@ float Judge(char name[]) {
     return score / (float) (counter-1) * 100;
 }
 
-
+/*
+* this function is the tui of the program
+* it runs when every single job is done in the main functions so it does not stuck in return pointers
+* variable name is the project name and command is the execution of cmd
+*/
 void ui() {
     int cmd;
     char name[50], send[20], command[40];
