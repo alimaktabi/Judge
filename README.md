@@ -3,4 +3,4 @@
 this program checks others homeworks and give them a score 
 
 
-same project in quera.ir
+familiar project in quera.ir
