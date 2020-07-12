@@ -1,6 +1,6 @@
 import sys
 import os
-#
+
 # a = open("index.html");
 # string = ""
 # for i in range(24):
@@ -18,7 +18,6 @@ import os
 # o.write(string);
 # a.close();
 # o.close();
-os.chdir("D:\\temp");
 a = open("base.html");
 string = "";
 
@@ -27,7 +26,6 @@ for i in range(43):
 
 log = open("log.txt")
 count = 0
-
 for line in log.readlines():
     string += "<p> Test case" + str(count) + "</p>\n"
     if line.strip() == "pass":
@@ -38,7 +36,7 @@ for line in log.readlines():
     count+=1;
 for i in a.readlines():
     string += i + "\n"
-o = open("index1.html", "w");
+o = open("index.html", "w");
 o.write(string);
 o.close();
 

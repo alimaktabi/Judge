@@ -5,12 +5,14 @@
 #define MAXSIZE 100
 
 float Judge(char name[]);
+
 /*
 *This function is for getting input and output files from txt addresses if needed
 * variable counter and count are counters for getting inputs and putting testcases
 * variable command is for executing commands in cmd
 * variable name is the name of the project and x counts the txt files as it goes
 */
+
 void Text(char name[]) {
     int count, counter = 1;
     char location[MAXSIZE], command[MAXSIZE], x;
@@ -131,19 +133,14 @@ int cd(char name[]) {
 
 /*
 * this function gets testfile outputs and put them into comparefiles
-* variable name is the name of the judge
-* variable command is for executing cmd commands
-* function returns the score at last
+* variable @name is the name of the judge
+* variable @command is for executing cmd commands
+* function @returns the score at last
 */
 float Judge(char name[]) {
     int score = 0;
     int counter = 1, count=0;
     char command[50] = "mkdir ";
-    //DIR *d;
-/*    if (directory("in") != 0) {
-        printf("The files are modified or something missing! pls create new judge!\n");
-        return -1;
-    } */
     strcat(command, name); strcat(command, "\\testcase");
     if(system(command) == 1) {
         strcpy(command, "RMDIR /Q/S "); strcat(command, name); strcat(command, "\\testcase");
@@ -200,7 +197,7 @@ float Judge(char name[]) {
 /*
 * this function is the tui of the program
 * it runs when every single job is done in the main functions so it does not stuck in return pointers
-* variable name is the project name and command is the execution of cmd
+* variable @name is the project name and command is the execution of cmd
 */
 void ui() {
     int cmd;
@@ -272,7 +269,7 @@ void ui() {
         printf("The result of test is: %f\nDo you want to see details?\n", score);
         scanf("%c", &enter);
         if (enter == 'y') {
-            strcpy(command, "python D:\\temp\\sad.py "); strcat(command, name);
+            strcpy(command, "python sad.py "); strcat(command, name);
             system(command);
         }
         printf("press enter to continue");
@@ -319,7 +316,7 @@ void ui() {
                 printf("The result of test is: %f\nDo you want to see details?\n", score);
         scanf("%c", &enter);
         if (enter == 'y') {
-            strcpy(command, "python D:\\temp\\sad.py "); strcat(command, name);
+            strcpy(command, "python sad.py "); strcat(command, name);
             system(command);
         }
         printf("press enter to continue: ");
